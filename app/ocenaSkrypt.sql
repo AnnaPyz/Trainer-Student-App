@@ -14,3 +14,5 @@ create table grupy(nazwa varchar(50));
 
 select * from grupy;
 select * from uzytkownicy;
+
+update projekty set ocena = 4 where id = 1;
