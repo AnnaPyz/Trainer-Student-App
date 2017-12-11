@@ -14,3 +14,8 @@ create table grupy(nazwa varchar(50));
 
 select * from grupy;
 select * from uzytkownicy;
+select * from uzytkownicy where login = 'kursant';
+
+select * from projekty;
+
+select temat,opis, termin from projekty join uzytkownicy on projekty.grupa = uzytkownicy.grupa where uzytkownicy.login = 'kursant';

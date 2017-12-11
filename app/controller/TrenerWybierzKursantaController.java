@@ -65,7 +65,7 @@ public class TrenerWybierzKursantaController {
 	public void initialize() {
 		select();
 	}
-	
+
 	private void polacz() {
 		db = new DBConnector();
 		conn = db.connInit();
@@ -109,7 +109,7 @@ public class TrenerWybierzKursantaController {
 			loginError.setContentText("B³¹d!!!!");
 			loginError.showAndWait();
 		}
-		
+
 		polacz();
 		String temp_grupa = TrenerGrupyController.grupa;
 		try {
@@ -125,10 +125,10 @@ public class TrenerWybierzKursantaController {
 
 	@FXML
 	void OdznaczKursantaAction(MouseEvent event) {
-		show("TrenerView.fxml","Wybierz kursanta do grupy");
-		((Node)(event.getSource())).getScene().getWindow().hide();
+		show("TrenerView.fxml", "Wybierz kursanta do grupy");
+		((Node) (event.getSource())).getScene().getWindow().hide();
 	}
-	
+
 	private void show(String plik, String tytul) {
 		Stage stejdz = new Stage();
 		Parent rodzic = null;
@@ -143,4 +143,14 @@ public class TrenerWybierzKursantaController {
 		stejdz.show();
 	}
 
+	@FXML
+	void DodajNowegoAction(MouseEvent event) {
+		show("KursantAdd.fxml", "Dodaj nowego kursanta");
+		((Node) (event.getSource())).getScene().getWindow().hide();
+	}
+
+	@FXML
+	void SkasujKursantaAction(MouseEvent event) {
+
+	}
 }

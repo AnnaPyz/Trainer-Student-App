@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.KursantAddController">
    <children>
       <Label layoutX="26.0" layoutY="85.0" prefHeight="16.0" prefWidth="107.0" text="Imię:" />
@@ -23,6 +22,6 @@
       <TextField fx:id="add_login" layoutX="115.0" layoutY="268.0" />
       <TextField fx:id="add_password" layoutX="115.0" layoutY="312.0" />
       <Label layoutX="97.0" layoutY="24.0" prefHeight="16.0" prefWidth="441.0" text="Dodawanie Kursanta:" />
-      <Button fx:id="btn_dodaj" layoutX="318.0" layoutY="96.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="241.0" text="Dodaj Kursanta" />
+      <Button fx:id="btn_dodaj" layoutX="318.0" layoutY="96.0" mnemonicParsing="false" onMouseClicked="#dodajNowegoAction" prefHeight="225.0" prefWidth="241.0" text="Dodaj Kursanta" />
    </children>
 </AnchorPane>
