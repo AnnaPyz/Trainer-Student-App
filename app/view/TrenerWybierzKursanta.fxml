@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.TrenerWybierzKursantaController">
    <top>
       <Label text="Wybierz kursantów:" BorderPane.alignment="CENTER" />
    </top>
@@ -32,7 +32,6 @@
    <center>
       <TableView fx:id="t" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="t_id" prefWidth="57.0" text="ID" />
           <TableColumn fx:id="t_login" prefWidth="93.0" text="LOGIN" />
             <TableColumn fx:id="t_imie" prefWidth="141.0" text="IMIĘ" />
             <TableColumn fx:id="t_nazwisko" prefWidth="130.0" text="NAZWISKO" />
