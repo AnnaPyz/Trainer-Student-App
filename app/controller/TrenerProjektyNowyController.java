@@ -1,5 +1,6 @@
 package app.controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -7,11 +8,16 @@ import java.sql.SQLException;
 import app.database.DBConnector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class TrenerProjektyNowyController {
 
@@ -60,6 +66,9 @@ public class TrenerProjektyNowyController {
 				e.printStackTrace();
 			}
 		}
+		
+		show("TrenerView.fxml","Panel trenera");
+		((Node)(event.getSource())).getScene().getWindow().hide();
 
 	}
 
@@ -70,4 +79,18 @@ public class TrenerProjektyNowyController {
 		tf_projekt_gr.clear();
 	}
 
+	private void show(String plik, String tytul) {
+		Stage stejdz = new Stage();
+		Parent rodzic = null;
+		try {
+			rodzic = (Parent) FXMLLoader.load(getClass().getResource("/app/view/" + plik));
+		} catch (IOException e) {
+			System.out.println("B³¹d przy odpalaniu widoku!");
+		}
+		Scene scenka = new Scene(rodzic);
+		stejdz.setScene(scenka);
+		stejdz.setTitle(tytul);
+		stejdz.show();
+	}
+	
 }

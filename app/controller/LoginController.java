@@ -25,6 +25,7 @@ import javafx.scene.Node;
 public class LoginController {
 
 	DBConnector db;
+	static String login;
 
 	@FXML
 	private TextField tf_login;
@@ -64,6 +65,8 @@ public class LoginController {
 			e.printStackTrace();
 		}
 
+		LoginController.login = login;
+		
 		try {
 			if (rs.next()) {
 				String temp;
