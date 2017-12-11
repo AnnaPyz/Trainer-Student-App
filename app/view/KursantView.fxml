@@ -76,14 +76,14 @@
          </font>
       </Label>
       <Line endX="750.0" layoutX="115.0" layoutY="48.0" startX="-100.0" />
-      <TableView layoutX="63.0" layoutY="334.0" prefHeight="256.0" prefWidth="784.0">
+      <TableView fx:id="tbl" layoutX="63.0" layoutY="334.0" prefHeight="256.0" prefWidth="784.0">
         <columns>
-          <TableColumn prefWidth="150.0" text="TEMAT" />
-          <TableColumn minWidth="0.0" prefWidth="486.0" text="OPIS" />
-            <TableColumn minWidth="0.0" prefWidth="147.0" text="TERMIN" />
+          <TableColumn fx:id="tbl_temat" prefWidth="150.0" text="TEMAT" />
+          <TableColumn fx:id="tbl_opis" minWidth="0.0" prefWidth="486.0" text="OPIS" />
+            <TableColumn fx:id="tbl_termin" minWidth="0.0" prefWidth="147.0" text="TERMIN" />
         </columns>
       </TableView>
-      <Button fx:id="btn_submit" layoutX="705.0" layoutY="288.0" mnemonicParsing="false" text="SUBMIT PROJECT">
+      <Button fx:id="btn_submit" layoutX="705.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#submitAction" text="SUBMIT PROJECT">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
