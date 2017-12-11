@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="26.0" layoutY="85.0" prefHeight="16.0" prefWidth="107.0" text="Imię:" />
+      <Label layoutX="26.0" layoutY="114.0" prefHeight="16.0" prefWidth="107.0" text="Nazwisko:" />
+      <Label layoutX="26.0" layoutY="154.0" prefHeight="16.0" prefWidth="107.0" text="Telefon:" />
+      <Label layoutX="26.0" layoutY="208.0" prefHeight="16.0" prefWidth="107.0" text="e-mail:" />
+      <Label layoutX="26.0" layoutY="236.0" prefHeight="16.0" prefWidth="107.0" text="GitHub:" />
+      <Label layoutX="26.0" layoutY="273.0" prefHeight="16.0" prefWidth="107.0" text="Login:" />
+      <Label layoutX="26.0" layoutY="317.0" prefHeight="16.0" prefWidth="107.0" text="Password:" />
+      <TextField fx:id="add_name" layoutX="115.0" layoutY="80.0" />
+      <TextField fx:id="add_last" layoutX="115.0" layoutY="109.0" />
+      <TextField fx:id="add_phone" layoutX="115.0" layoutY="149.0" />
+      <TextField fx:id="add_mail" layoutX="115.0" layoutY="195.0" />
+      <TextField fx:id="add_github" layoutX="115.0" layoutY="231.0" />
+      <TextField fx:id="add_login" layoutX="115.0" layoutY="268.0" />
+      <TextField fx:id="add_password" layoutX="115.0" layoutY="312.0" />
+      <Label layoutX="97.0" layoutY="24.0" prefHeight="16.0" prefWidth="441.0" text="Dodawanie Kursanta:" />
+      <Button fx:id="btn_dodaj" layoutX="318.0" layoutY="96.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="241.0" text="Dodaj Kursanta" />
+   </children>
+</AnchorPane>
