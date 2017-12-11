@@ -27,7 +27,8 @@ public class TrenerProjektyController {
 
 	@FXML
 	void OcenProjektAction(MouseEvent event) {
-
+		show("TrenerProjektyOcenView.fxml", "Wybierz projekt do oceny");
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	private void show(String plik, String tytul) {

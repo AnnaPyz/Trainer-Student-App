@@ -56,12 +56,12 @@ public class TrenerProjektyOcenController {
 	DBConnector db;
 	static public int proj_id_selected;
 
-	private void show(String plik, String tytul){
+	private void show(String plik, String tytul) {
 		Stage stejdz = new Stage();
 		Parent rodzic = null;
-		
+
 		try {
-			rodzic = (Parent) FXMLLoader.load(getClass().getResource("/app/view/"+plik));
+			rodzic = (Parent) FXMLLoader.load(getClass().getResource("/app/view/" + plik));
 		} catch (IOException e) {
 			System.out.println("B³¹d przy odpalaniu widoku!");
 		}
@@ -70,7 +70,7 @@ public class TrenerProjektyOcenController {
 		stejdz.setTitle(tytul);
 		stejdz.show();
 	}
-	
+
 	@FXML
 	void ocenProjektAction(MouseEvent event) {
 		try {
@@ -82,14 +82,18 @@ public class TrenerProjektyOcenController {
 			a.setContentText("Zaznacz rekord");
 			a.showAndWait();
 		}
-		show("TrenerProjektyOcenOcenaView.fxml","Ocena projektu");
-		connection();
-		update();
+		show("TrenerProjektyOcenOcenaView.fxml", "Ocena projektu");
 	}
 
 	@FXML
-	void odznaczProjektAction(MouseEvent event) {
+	void comebackAction(MouseEvent event) {
+		show("TrenerView.fxml", "Panel trenera");
+		((Node) (event.getSource())).getScene().getWindow().hide();
+	}
 
+	@FXML
+	void refreshAction(MouseEvent event) {
+		select();
 	}
 
 	private void connection() {
@@ -102,14 +106,14 @@ public class TrenerProjektyOcenController {
 		dane.clear();
 		t.setItems(dane);
 		try {
-			ps = conn.prepareStatement("SELECT * FROM ankieta");
+			ps = conn.prepareStatement("SELECT * FROM projekty");
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				dane.add(new Projekt(rs.getInt("idproj"), rs.getString("temat"), rs.getString("opis"),
+				dane.add(new Projekt(rs.getInt("id"), rs.getString("temat"), rs.getString("opis"),
 						rs.getString("termin"), rs.getString("grupa"), rs.getInt("zrobione"), rs.getInt("ocena")));
 			}
-			t_idproj.setCellValueFactory(new PropertyValueFactory<Projekt, Integer>("idproj"));
+			t_idproj.setCellValueFactory(new PropertyValueFactory<Projekt, Integer>("id"));
 			t_temat.setCellValueFactory(new PropertyValueFactory<Projekt, String>("temat"));
 			t_opis.setCellValueFactory(new PropertyValueFactory<Projekt, String>("opis"));
 			t_termin.setCellValueFactory(new PropertyValueFactory<Projekt, String>("termin"));
@@ -121,20 +125,6 @@ public class TrenerProjektyOcenController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	private void update(){
-		connection();		
-		PreparedStatement ps;
-		try {
-			ps = conn.prepareStatement("update projekty set ocena = ? where id = ?;");
-		ps.setInt(1, TrenerProjektyOcenOcenaController.proj_nowa_ocena);
-		ps.setInt(2, proj_id_selected);
-		ps.executeUpdate();
-		ps.executeQuery();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		select();
 	}
 
 	public void initialize() {
