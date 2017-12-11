@@ -49,9 +49,8 @@ public class LoginController {
 		loginMethod();
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
-
+	
 	private void loginMethod() {
-		System.out.println("Login method");
 		String login = tf_login.getText();
 		String pass = pf_login.getText();
 		db = new DBConnector();

@@ -37,7 +37,7 @@
             <Label text="Nazwa grupy:" GridPane.rowIndex="2" />
             <Label GridPane.rowIndex="3" />
             <TextField fx:id="tf_nazwagr" maxWidth="-Infinity" prefHeight="31.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btn_dodajkursantow" mnemonicParsing="false" text="Wybierz i dodaj kursantów" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btn_dodajkursantow" mnemonicParsing="false" onMouseClicked="#dodajKursantowAction" text="Wybierz i dodaj kursantów" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </center>
