@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Label text="Wybierz kursantów:" BorderPane.alignment="CENTER" />
    </top>
@@ -16,11 +15,11 @@
       <VBox prefHeight="262.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="30.0" prefWidth="74.0" />
-            <Button mnemonicParsing="false" text="Dodaj" />
-            <Label text="Label" />
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="Odśwież" />
-            <Label text="Label" />
-            <Button mnemonicParsing="false" text="Odznacz" />
+            <Button fx:id="btn_dodajkursanta" mnemonicParsing="false" onMouseClicked="#DodajKursantaAction" text="Dodaj" />
+            <Label />
+            <Button fx:id="btn_odswieztabele" mnemonicParsing="false" onMouseClicked="#OdswezKursantaAction" prefHeight="31.0" prefWidth="87.0" text="Odśwież" />
+            <Label />
+            <Button fx:id="btn_odznaczkursanta" mnemonicParsing="false" onMouseClicked="#OdznaczKursantaAction" text="Odznacz" />
          </children>
       </VBox>
    </left>
@@ -31,10 +30,16 @@
       <Label text="     " BorderPane.alignment="CENTER" />
    </right>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="t" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="t_id" prefWidth="57.0" text="ID" />
+          <TableColumn fx:id="t_login" prefWidth="93.0" text="LOGIN" />
+            <TableColumn fx:id="t_imie" prefWidth="141.0" text="IMIĘ" />
+            <TableColumn fx:id="t_nazwisko" prefWidth="130.0" text="NAZWISKO" />
+            <TableColumn fx:id="t_grupa" minWidth="0.0" prefWidth="136.0" text="GRUPA" />
+            <TableColumn fx:id="t_tel" minWidth="0.0" prefWidth="126.0" text="TELEFON" />
+            <TableColumn fx:id="t_mail" minWidth="0.0" prefWidth="193.0" text="MAIL" />
+            <TableColumn fx:id="t_github" minWidth="0.0" prefWidth="237.0" text="GITHUB" />
         </columns>
       </TableView>
    </center>
