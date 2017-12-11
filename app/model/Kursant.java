@@ -6,7 +6,7 @@ public class Kursant {
 	private int upraw;
 	private String imie;
 	private String nazwisko;
-	private int grupa;
+	private String grupa;
 	private String telefon;
 	private String mail;
 	private String github;
@@ -15,7 +15,7 @@ public class Kursant {
 	
 	
 	
-	public Kursant(String login, String pass, int upraw, String imie, String nazwisko, int grupa, String telefon,
+	public Kursant(String login, String pass, int upraw, String imie, String nazwisko, String grupa, String telefon,
 			String mail, String github) {
 		this.login = login;
 		this.pass = pass;
@@ -58,10 +58,10 @@ public class Kursant {
 	public void setNazwisko(String nazwisko) {
 		this.nazwisko = nazwisko;
 	}
-	public int getGrupa() {
+	public String getGrupa() {
 		return grupa;
 	}
-	public void setGrupa(int grupa) {
+	public void setGrupa(String grupa) {
 		this.grupa = grupa;
 	}
 	public String getTelefon() {

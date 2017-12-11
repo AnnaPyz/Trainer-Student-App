@@ -23,6 +23,7 @@ public class TrenerGrupyController {
 	Connection conn;
 	Statement cursor;
 	PreparedStatement ps;
+	static String grupa;
 
 	@FXML
 	private TextField tf_nazwagr;
@@ -47,6 +48,7 @@ public class TrenerGrupyController {
 
 		try {
 			cursor.executeUpdate("insert into grupy(nazwa) values('" + temp + "');");
+			grupa = temp;
 		} catch (SQLException e) {
 			System.out.println("B³¹d inserta!");
 		}

@@ -10,9 +10,11 @@ import app.model.Kursant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -40,7 +42,7 @@ public class TrenerWybierzKursantaController {
 	private TableColumn<Kursant, String> t_nazwisko;
 
 	@FXML
-	private TableColumn<Kursant, Integer> t_grupa;
+	private TableColumn<Kursant, String> t_grupa;
 
 	@FXML
 	private TableColumn<Kursant, String> t_tel;
@@ -74,13 +76,13 @@ public class TrenerWybierzKursantaController {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				dane.add(new Kursant(rs.getString("login"), rs.getString("pass"), rs.getInt("upraw"),
-						rs.getString("imie"), rs.getString("nazwisko"), rs.getInt("grupa"), rs.getString("telefon"),
+						rs.getString("imie"), rs.getString("nazwisko"), rs.getString("grupa"), rs.getString("telefon"),
 						rs.getString("mail"), rs.getString("github")));
 			}
 			t_login.setCellValueFactory(new PropertyValueFactory<Kursant, String>("login"));
 			t_imie.setCellValueFactory(new PropertyValueFactory<Kursant, String>("imie"));
 			t_nazwisko.setCellValueFactory(new PropertyValueFactory<Kursant, String>("nazwisko"));
-			t_grupa.setCellValueFactory(new PropertyValueFactory<Kursant, Integer>("grupa"));
+			t_grupa.setCellValueFactory(new PropertyValueFactory<Kursant, String>("grupa"));
 			t_tel.setCellValueFactory(new PropertyValueFactory<Kursant, String>("telefon"));
 			t_mail.setCellValueFactory(new PropertyValueFactory<Kursant, String>("mail"));
 			t_github.setCellValueFactory(new PropertyValueFactory<Kursant, String>("github"));
@@ -94,7 +96,27 @@ public class TrenerWybierzKursantaController {
 
 	@FXML
 	void DodajKursantaAction(MouseEvent event) {
-
+		String login_selected = "";
+		try {
+			login_selected = t.getSelectionModel().getSelectedItem().getLogin();
+		} catch (Exception e) {
+			Alert loginError = new Alert(AlertType.ERROR);
+			loginError.setTitle("B³¹d!");
+			loginError.setHeaderText("B³¹d");
+			loginError.setContentText("B³¹d!!!!");
+			loginError.showAndWait();
+		}
+		
+		polacz();
+		String temp_grupa = TrenerGrupyController.grupa;
+		try {
+			ps = conn.prepareStatement("update uzytkownicy set grupa = ? where login = ?;");
+			ps.setString(1, temp_grupa);
+			ps.setString(2, login_selected);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
