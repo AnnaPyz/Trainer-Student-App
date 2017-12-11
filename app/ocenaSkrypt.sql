@@ -16,3 +16,10 @@ select * from grupy;
 select * from uzytkownicy;
 
 update projekty set ocena = 4 where id = 1;
+
+select * from uzytkownicy where login = 'kursant';
+
+select * from projekty;
+
+select temat,opis, termin from projekty join uzytkownicy on projekty.grupa = uzytkownicy.grupa where uzytkownicy.login = 'kursant';
+

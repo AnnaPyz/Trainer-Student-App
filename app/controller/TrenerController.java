@@ -38,7 +38,7 @@ public class TrenerController {
 
 	@FXML
 	void trenerKursanciAction(MouseEvent event) {
-		show("TrenerKursanciView.fxml","Kursanci");
+		show("TrenerWybierzKursanta.fxml","Kursanci");
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
