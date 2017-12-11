@@ -151,6 +151,25 @@ public class TrenerWybierzKursantaController {
 
 	@FXML
 	void SkasujKursantaAction(MouseEvent event) {
+		String login_selected = "";
+		try {
+			login_selected = t.getSelectionModel().getSelectedItem().getLogin();
+		} catch (Exception e) {
+			Alert loginError = new Alert(AlertType.ERROR);
+			loginError.setTitle("B³¹d!");
+			loginError.setHeaderText("B³¹d");
+			loginError.setContentText("B³¹d!!!!");
+			loginError.showAndWait();
+		}
 
+		polacz();
+		try {
+			ps = conn.prepareStatement("delete from uzytkownicy where login = ?;");
+			ps.setString(1, login_selected);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		select();
 	}
 }

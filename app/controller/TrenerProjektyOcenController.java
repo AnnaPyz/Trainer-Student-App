@@ -106,7 +106,7 @@ public class TrenerProjektyOcenController {
 		dane.clear();
 		t.setItems(dane);
 		try {
-			ps = conn.prepareStatement("SELECT * FROM projekty");
+			ps = conn.prepareStatement("SELECT * FROM projekty WHERE zrobione != 0");
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {

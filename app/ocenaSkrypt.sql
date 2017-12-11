@@ -12,14 +12,3 @@ insert into projekty(temat, opis, termin) values ('Projekt testowy','Opis projek
 
 create table grupy(nazwa varchar(50));
 
-select * from grupy;
-select * from uzytkownicy;
-
-update projekty set ocena = 4 where id = 1;
-
-select * from uzytkownicy where login = 'kursant';
-
-select * from projekty;
-
-select temat,opis, termin from projekty join uzytkownicy on projekty.grupa = uzytkownicy.grupa where uzytkownicy.login = 'kursant';
-
