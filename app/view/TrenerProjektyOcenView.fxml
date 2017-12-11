@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="751.0" prefWidth="1256.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controller.TrenerProjektyOcenController">
+   <top>
+      <Label text="Wybierz projekt który chcesz ocenić:" BorderPane.alignment="CENTER" />
+   </top>
+   <right>
+      <Label text="         " BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <Label BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <TableView fx:id="t" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="t_idproj" prefWidth="75.0" text="ID PROJ" />
+          <TableColumn fx:id="t_temat" prefWidth="237.0" text="TEMAT" />
+            <TableColumn fx:id="t_opis" prefWidth="282.0" text="OPIS" />
+            <TableColumn fx:id="t_termin" prefWidth="150.0" text="TERMIN ODDANIA" />
+            <TableColumn fx:id="t_grupa" minWidth="0.0" prefWidth="166.0" text="GRUPA" />
+            <TableColumn fx:id="t_zrobione" minWidth="0.0" prefWidth="139.0" text="STATUS ODDANIA" />
+            <TableColumn fx:id="t_ocena" minWidth="0.0" prefWidth="71.0" text="OCENA" />
+        </columns>
+      </TableView>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="31.0" prefWidth="0.0" />
+            <Button fx:id="btn_ocen" mnemonicParsing="false" onMouseClicked="#ocenProjektAction" text="Oceń" />
+            <Label fx:id="btn_odznacz" />
+            <Button mnemonicParsing="false" onMouseClicked="#odznaczProjektAction" text="Odznacz" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
