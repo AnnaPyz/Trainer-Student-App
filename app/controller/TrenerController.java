@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -32,16 +33,19 @@ public class TrenerController {
 	@FXML
 	void trenerGrupyAction(MouseEvent event) {
 		show("TrenerGrupyView.fxml","Grupy");
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	@FXML
 	void trenerKursanciAction(MouseEvent event) {
 		show("TrenerKursanciView.fxml","Kursanci");
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 	@FXML
 	void trenerProjektyAction(MouseEvent event) {
 		show("TrenerProjektyView.fxml","Projekty");
+		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 
 }
