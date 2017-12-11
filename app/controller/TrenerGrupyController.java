@@ -52,7 +52,7 @@ public class TrenerGrupyController {
 		} catch (SQLException e) {
 			System.out.println("B³¹d inserta!");
 		}
-		show("TrenerWybierzKursanta.fxml","Wybierz kursanta do grupy");
+		show("TrenerWybierzKursanta.fxml","Wybierz kursantów do grupy");
 		((Node)(event.getSource())).getScene().getWindow().hide();
 	}
 

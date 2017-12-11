@@ -17,9 +17,8 @@
             <Label prefHeight="30.0" prefWidth="74.0" />
             <Button fx:id="btn_dodajkursanta" mnemonicParsing="false" onMouseClicked="#DodajKursantaAction" text="Dodaj" />
             <Label />
-            <Button fx:id="btn_odswieztabele" mnemonicParsing="false" onMouseClicked="#OdswezKursantaAction" prefHeight="31.0" prefWidth="87.0" text="Odśwież" />
             <Label />
-            <Button fx:id="btn_odznaczkursanta" mnemonicParsing="false" onMouseClicked="#OdznaczKursantaAction" text="Odznacz" />
+            <Button fx:id="btn_odznaczkursanta" mnemonicParsing="false" onMouseClicked="#OdznaczKursantaAction" text="Wróć" />
          </children>
       </VBox>
    </left>

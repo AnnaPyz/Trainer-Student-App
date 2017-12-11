@@ -1,5 +1,6 @@
 package app.controller;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +11,10 @@ import app.model.Kursant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -17,14 +22,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class TrenerWybierzKursantaController {
 
 	@FXML
 	private Button btn_dodajkursanta;
-
-	@FXML
-	private Button btn_odswieztabele;
 
 	@FXML
 	private Button btn_odznaczkursanta;
@@ -117,16 +120,27 @@ public class TrenerWybierzKursantaController {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-
-	@FXML
-	void OdswezKursantaAction(MouseEvent event) {
 		select();
 	}
 
 	@FXML
 	void OdznaczKursantaAction(MouseEvent event) {
-
+		show("TrenerView.fxml","Wybierz kursanta do grupy");
+		((Node)(event.getSource())).getScene().getWindow().hide();
+	}
+	
+	private void show(String plik, String tytul) {
+		Stage stejdz = new Stage();
+		Parent rodzic = null;
+		try {
+			rodzic = (Parent) FXMLLoader.load(getClass().getResource("/app/view/" + plik));
+		} catch (IOException e) {
+			System.out.println("B³¹d przy odpalaniu widoku!");
+		}
+		Scene scenka = new Scene(rodzic);
+		stejdz.setScene(scenka);
+		stejdz.setTitle(tytul);
+		stejdz.show();
 	}
 
 }
