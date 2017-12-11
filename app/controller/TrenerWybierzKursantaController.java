@@ -18,53 +18,54 @@ import javafx.scene.input.MouseEvent;
 
 public class TrenerWybierzKursantaController {
 
-    @FXML
-    private Button btn_dodajkursanta;
+	@FXML
+	private Button btn_dodajkursanta;
 
-    @FXML
-    private Button btn_odswieztabele;
+	@FXML
+	private Button btn_odswieztabele;
 
-    @FXML
-    private Button btn_odznaczkursanta;
+	@FXML
+	private Button btn_odznaczkursanta;
 
-    @FXML
-    private TableView<?> t;
+	@FXML
+	private TableView<Kursant> t;
 
-    @FXML
-    private TableColumn<?, ?> t_id;
+	@FXML
+	private TableColumn<Kursant, String> t_login;
 
-    @FXML
-    private TableColumn<?, ?> t_login;
+	@FXML
+	private TableColumn<Kursant, String> t_imie;
 
-    @FXML
-    private TableColumn<?, ?> t_imie;
+	@FXML
+	private TableColumn<Kursant, String> t_nazwisko;
 
-    @FXML
-    private TableColumn<?, ?> t_nazwisko;
+	@FXML
+	private TableColumn<Kursant, Integer> t_grupa;
 
-    @FXML
-    private TableColumn<?, ?> t_grupa;
+	@FXML
+	private TableColumn<Kursant, String> t_tel;
 
-    @FXML
-    private TableColumn<?, ?> t_tel;
+	@FXML
+	private TableColumn<Kursant, String> t_mail;
 
-    @FXML
-    private TableColumn<?, ?> t_mail;
+	@FXML
+	private TableColumn<Kursant, String> t_github;
 
-    @FXML
-    private TableColumn<?, ?> t_github;
-    
-    PreparedStatement ps;
+	PreparedStatement ps;
 	Connection conn;
 	DBConnector db;
-	
+
 	public ObservableList<Kursant> dane = FXCollections.observableArrayList();
+
+	public void initialize() {
+		select();
+	}
 	
 	private void polacz() {
 		db = new DBConnector();
 		conn = db.connInit();
 	}
-	
+
 	private void select() {
 		polacz();
 		dane.clear();
@@ -72,19 +73,18 @@ public class TrenerWybierzKursantaController {
 			ps = conn.prepareStatement("SELECT * FROM uzytkownicy");
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				dane.add(new Kursant(rs.getString("login"), rs.getString("pass"), rs.getInt("upraw"), rs.getString("imie"),
-						rs.getString("nazwisko"), rs.getInt("grupa"), rs.getString("telefon"), rs.getString("mail"),
-						rs.getString("github")));
+				dane.add(new Kursant(rs.getString("login"), rs.getString("pass"), rs.getInt("upraw"),
+						rs.getString("imie"), rs.getString("nazwisko"), rs.getInt("grupa"), rs.getString("telefon"),
+						rs.getString("mail"), rs.getString("github")));
 			}
-			t_id.setCellValueFactory(new PropertyValueFactory<Admin, Integer>("id"));
-			t_name.setCellValueFactory(new PropertyValueFactory<Admin, String>("name"));
-			t_last.setCellValueFactory(new PropertyValueFactory<Admin, String>("last"));
-			t_java.setCellValueFactory(new PropertyValueFactory<Admin, Boolean>("java"));
-			t_python.setCellValueFactory(new PropertyValueFactory<Admin, Boolean>("python"));
-			t_other.setCellValueFactory(new PropertyValueFactory<Admin, String>("other"));
-			t_english.setCellValueFactory(new PropertyValueFactory<Admin, String>("english"));
-			t_kurs.setCellValueFactory(new PropertyValueFactory<Admin, String>("kurs"));
-			t_data.setCellValueFactory(new PropertyValueFactory<Admin, String>("data"));
+			t_login.setCellValueFactory(new PropertyValueFactory<Kursant, String>("login"));
+			t_imie.setCellValueFactory(new PropertyValueFactory<Kursant, String>("imie"));
+			t_nazwisko.setCellValueFactory(new PropertyValueFactory<Kursant, String>("nazwisko"));
+			t_grupa.setCellValueFactory(new PropertyValueFactory<Kursant, Integer>("grupa"));
+			t_tel.setCellValueFactory(new PropertyValueFactory<Kursant, String>("telefon"));
+			t_mail.setCellValueFactory(new PropertyValueFactory<Kursant, String>("mail"));
+			t_github.setCellValueFactory(new PropertyValueFactory<Kursant, String>("github"));
+
 			t.setItems(null);
 			t.setItems(dane);
 		} catch (SQLException e) {
@@ -92,21 +92,19 @@ public class TrenerWybierzKursantaController {
 		}
 	}
 
-    @FXML
-    void DodajKursantaAction(MouseEvent event) {
+	@FXML
+	void DodajKursantaAction(MouseEvent event) {
 
-    }
+	}
 
-    @FXML
-    void OdswezKursantaAction(MouseEvent event) {
+	@FXML
+	void OdswezKursantaAction(MouseEvent event) {
+		select();
+	}
 
-    }
+	@FXML
+	void OdznaczKursantaAction(MouseEvent event) {
 
-    @FXML
-    void OdznaczKursantaAction(MouseEvent event) {
+	}
 
-    }
-
-    
-    
 }

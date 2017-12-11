@@ -32,7 +32,6 @@
    <center>
       <TableView fx:id="t" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn fx:id="t_id" prefWidth="57.0" text="ID" />
           <TableColumn fx:id="t_login" prefWidth="93.0" text="LOGIN" />
             <TableColumn fx:id="t_imie" prefWidth="141.0" text="IMIĘ" />
             <TableColumn fx:id="t_nazwisko" prefWidth="130.0" text="NAZWISKO" />
