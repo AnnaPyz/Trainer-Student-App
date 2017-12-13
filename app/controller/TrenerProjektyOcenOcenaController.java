@@ -81,7 +81,6 @@ public class TrenerProjektyOcenOcenaController {
 		ps.setInt(1, proj_nowa_ocena);
 		ps.setInt(2, TrenerProjektyOcenController.proj_id_selected);
 		ps.executeUpdate();
-		ps.executeQuery();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
